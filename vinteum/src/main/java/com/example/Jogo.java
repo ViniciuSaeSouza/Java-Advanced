@@ -23,16 +23,17 @@ public class Jogo {
 			return "Empatou";
 		}
 
-		if (computadorEstourou() || jogador.getPontos() > computador.getPontos()) {
+		if (ganhou()) {
 			return "Você ganhou!";
 		}
 
-		return "Você perdeu :()";
+		return "Você perdeu :(";
 	}
 
 	public boolean acabou() {
 		// alguem estourou
 		// ambos pararam
+		// jogador parou
 		return jogadorEstourou() || computadorEstourou() || osDoisPararam();
 	}
 
@@ -56,6 +57,6 @@ public class Jogo {
 	}
 
 	private boolean ganhou() {
-		return computadorEstourou() || jogador.getPontos() > computador.getPontos();
+		return computadorEstourou() || !jogadorEstourou() &&  jogador.getPontos() > computador.getPontos();
 	}
 }

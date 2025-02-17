@@ -2,7 +2,7 @@ package com.example;
 
 public class Computador extends Jogador {
 
-    // TODO -> você precisa fazer
+
 
     @Override // apenas uma indicação para o compilador java -> notação: Elas permitem
               // adicionar metadados ao código fonte, que podem ser utilizados pelo

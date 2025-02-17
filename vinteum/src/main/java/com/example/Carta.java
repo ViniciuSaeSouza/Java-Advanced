@@ -1,10 +1,5 @@
 package com.example;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class Carta {
     private int numero;
     private Naipe naipe;
@@ -16,7 +11,7 @@ public class Carta {
 
     public String imagePath() {
         var numeroCarta = numero + "";
-        List<String> nomesNaipe = Arrays.asList("Ace", "Jack", "King", "Queen");
+        
         if (numero == 1) numeroCarta = "Ace";
         if (numero == 11) numeroCarta = "Jack";
         if (numero == 12) numeroCarta = "Queen";
@@ -36,7 +31,7 @@ public class Carta {
 
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
+        
         return "Num: " + getNumero() + " || Naipe: " + getNaipe();
     }
 

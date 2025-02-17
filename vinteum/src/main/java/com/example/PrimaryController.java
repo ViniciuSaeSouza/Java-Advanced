@@ -15,7 +15,7 @@ public class PrimaryController {
     @FXML private Label pontosJogador;
     @FXML private Label resultado;
 
-    private Jogo jogo;
+    private Jogo jogo = new Jogo();
 
     public void turno(){
         jogo.distribuirCartaParaJogador(jogo.jogador);
