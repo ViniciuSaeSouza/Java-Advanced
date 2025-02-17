@@ -32,4 +32,6 @@ public class Jogador {
     public boolean parou() {
         return parou;
     }
+
+    
 }
