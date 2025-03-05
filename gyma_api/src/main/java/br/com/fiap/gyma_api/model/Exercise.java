@@ -12,7 +12,8 @@ public class Exercise {
     private int restSec;
 
 
-    public Exercise(String name, List<MuscleGroup> muscleGroup, int repetitions, int series, int restSec) {
+    public Exercise(Long id, String name, List<MuscleGroup> muscleGroup, int repetitions, int series, int restSec) {
+        this.id = id;
         this.name = name;
         this.muscleGroup = muscleGroup;
         this.repetitions = repetitions;
