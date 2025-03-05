@@ -18,7 +18,7 @@ public class Plan {
         if (!exercises.isEmpty()){
             this.exercises = exercises;
         }
-        
+
         total = this.exercises.size();
         this.name = name;
     }
