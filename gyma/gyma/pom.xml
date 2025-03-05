@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.fiap</groupId>
-	<artifactId>gyma_api</artifactId>
+	<artifactId>fin-money-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>gyma_api</name>
-	<description>Demo project for Spring Boot</description>
+	<name>fin-money-api</name>
+	<description>API do projeto FinMoney</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -41,6 +41,7 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
