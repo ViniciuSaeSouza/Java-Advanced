@@ -5,7 +5,7 @@ import java.util.List;
 public class Exercise {
 
     private Long id;
-    public String name;
+    private String name;
     private List<MuscleGroup> muscleGroup;
     private int repetitions;
     private int series;

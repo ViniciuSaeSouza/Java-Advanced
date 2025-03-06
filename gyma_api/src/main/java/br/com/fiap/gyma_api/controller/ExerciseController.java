@@ -21,7 +21,7 @@ public class ExerciseController {
     @PostMapping("/exercises")
     @ResponseStatus (code = HttpStatus.CREATED)
     public Exercise create(@RequestBody Exercise exercise) {
-        System.out.println("Nome do exercício: " + exercise.name);
+        System.out.println("Nome do exercício: " + exercise);
         repository.add(exercise);
         return exercise;
     }
