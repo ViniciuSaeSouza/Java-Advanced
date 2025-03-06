@@ -7,7 +7,7 @@ public class Category {
 	private String name;
 	private String icon;
 	
-	public Category(Long id, String name, String icon) {
+	public Category(String name, String icon) {
 		this.id = Math.abs(new Random().nextLong());
 		this.name = name;
 		this.icon = icon;
@@ -24,5 +24,17 @@ public class Category {
 	public String getIcon() {
 		return icon;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Category{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", icon='" + icon + '\'' +
+				'}';
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }
