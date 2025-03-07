@@ -1,10 +1,20 @@
 package br.com.fiap.fin_money_api.model;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.util.Random;
 
+@Entity
+//@Table(name="tbl_categorias")
 public class Category {
+	@Id
 	private Long id;
+//	@Column(name = "nome")
 	private String name;
+//	@Column(name = "icone")
 	private String icon;
 	
 	public Category(String name, String icon) {
