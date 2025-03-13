@@ -8,8 +8,8 @@ import java.util.Date;
 
 public class Conta {
 
-    private long numero;
-    private long agencia;
+    private Long numero;
+    private Long agencia;
     private String nomeTitular;
     private String cpf;
     private LocalDate dataAbertura;
@@ -17,8 +17,7 @@ public class Conta {
     private boolean ativo; //(s/n)
     private TipoConta tipo;
 
-    public Conta(long numero, long agencia, String nomeTitular, String cpf, TipoConta tipo, Double saldo) {
-
+    public Conta(Long numero, Long agencia, String nomeTitular, String cpf, TipoConta tipo, Double saldo) {
         this.numero = numero;
         this.agencia = agencia;
         this.nomeTitular = nomeTitular;
@@ -29,19 +28,19 @@ public class Conta {
         this.tipo = tipo;
     }
 
-    public long getNumero() {
+    public Long getNumero() {
         return numero;
     }
 
-    public void setNumero(long numero) {
+    public void setNumero(Long numero) {
         this.numero = numero;
     }
 
-    public long getAgencia() {
+    public Long getAgencia() {
         return agencia;
     }
 
-    public void setAgencia(long agencia) {
+    public void setAgencia(Long agencia) {
         this.agencia = agencia;
     }
 

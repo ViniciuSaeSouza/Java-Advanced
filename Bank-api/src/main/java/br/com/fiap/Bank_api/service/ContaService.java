@@ -12,12 +12,12 @@ public class ContaService {
         if (verificaNullOuBlank(conta.getNomeTitular()) || verificaNullOuBlank(conta.getCpf())
                 || verificaSaldo(conta.getSaldo()) || verificaTipo(conta.getTipo().toString())
                 || verificaDataAbertura(conta.getDataAbertura())) {
-           throw new ResponseStatusException(HttpStatusCode.valueOf(400), "erro no corpo da resposta");
+            throw new ResponseStatusException(HttpStatusCode.valueOf(400), "erro no corpo da resposta");
         }
     }
 
     public boolean verificaNullOuBlank(String s) {
-        if ( s == null || s.isEmpty()) {
+        if (s == null || s.isEmpty()) {
             return true;
         }
         return false;
@@ -31,12 +31,10 @@ public class ContaService {
     }
 
     public boolean verificaTipo(String tipo) {
-        for (TipoConta c : TipoConta.values()) {
-            if (!tipo.toUpperCase().equals(c)) {
-                return false;
-            }
+        if (tipo == null || tipo.isEmpty() || TipoConta.valueOf(tipo).toString().isEmpty()) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     public boolean verificaDataAbertura(LocalDate data) {
