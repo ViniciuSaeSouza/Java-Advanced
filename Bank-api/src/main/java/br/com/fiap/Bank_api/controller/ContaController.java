@@ -1,6 +1,7 @@
 package br.com.fiap.Bank_api.controller;
 
 import br.com.fiap.Bank_api.model.Conta;
+import br.com.fiap.Bank_api.model.Deposito;
 import br.com.fiap.Bank_api.service.ContaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @RestController
@@ -33,19 +35,31 @@ public class ContaController {
         return conta;
     }
 
-    @GetMapping("/{cpf}")
+    @GetMapping("/cpf/{cpf}")
     public ResponseEntity<Conta> getCpf(@PathVariable String cpf) {
         System.out.println("Buscando conta de cpf: " + cpf);
-        return ResponseEntity.ok(getContaCpf(cpf));
+        return ResponseEntity.ok(getByCpf(cpf));
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<Conta> getId(@PathVariable Long id) {
         System.out.println("Buscando conta de id: " + id);
-        return ResponseEntity.ok(getContaId(id));
+        return ResponseEntity.ok(getById(id));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> destroy(@PathVariable Long id) {
+        getById(id).setAtivo(false);
+        return ResponseEntity.noContent().build();
+    }
+
+    @PatchMapping("/deposit")
+    public ResponseEntity<Conta> deposit(@RequestBody Deposito deposito) {
+        return ResponseEntity.ok(cs.deposit(getById(deposito.id()), deposito));
     }
 
 
+    // Métodos
 
     private Conta getByCpf(String cpf) {
         var conta = repository.stream()
@@ -53,7 +67,7 @@ public class ContaController {
                 .findFirst();
 
         if (conta.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Conta de cpf(" + cpf + ") não encontrada");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Conta de cpf (" + cpf + ") não encontrada");
         }
 
         return conta.get();
@@ -65,9 +79,11 @@ public class ContaController {
                 .findFirst();
 
         if (conta.isEmpty()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Conta de id ("+id+") não encontrada");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Conta de id (" + id + ") não encontrada");
         }
 
         return conta.get();
     }
+
+
 }
