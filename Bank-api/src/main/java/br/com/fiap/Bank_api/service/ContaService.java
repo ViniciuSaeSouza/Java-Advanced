@@ -1,66 +1,75 @@
 package br.com.fiap.Bank_api.service;
 
-import br.com.fiap.Bank_api.model.Conta;
-import br.com.fiap.Bank_api.model.Deposito;
-import br.com.fiap.Bank_api.model.TipoConta;
+import br.com.fiap.Bank_api.model.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 public class ContaService {
-    public void validaConta(Conta conta) {
-        if (verificaNullOuBlank(conta.getNomeTitular()) || verificaNullOuBlank(conta.getCpf())
-                || verificaSaldo(conta.getSaldo()) || verificaTipo(conta.getTipo().toString())
-                || verificaDataAbertura(conta.getDataAbertura())) {
+    public void validateAccount(Account account) {
+        if (checkBlankOrNull(account.getNomeTitular()) || checkBlankOrNull(account.getCpf())
+                || checkBalanceNullOrZero(account.getSaldo()) || checkType(account.getTipo().toString())
+                || checkOpeningDate(account.getDataAbertura())) {
             throw new ResponseStatusException(HttpStatusCode.valueOf(400), "erro no corpo da resposta");
         }
     }
 
-    public Conta deposit(Conta conta, Deposito deposito) {
-        if (!verificaValorPositivo(deposito.valor())){
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Valor deve ser maior que 0, valor: " + deposito.valor());
-        }
-
-        conta.setSaldo(conta.getSaldo() + deposito.valor());
-        return conta;
+    public Account deposit(Account account, BigDecimal value) {
+        checkValue(value);
+        account.setSaldo(account.getSaldo().add(value));
+        return account;
     }
 
-    public boolean verificaNullOuBlank(String s) {
-        if (s == null || s.isEmpty()) {
-            return true;
+    private void checkValue(BigDecimal value) {
+        if (!checkPositiveValue(value)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Valor deve ser maior que 0, valor: " + value);
         }
-        return false;
     }
 
-    public boolean verificaSaldo(Double saldo) {
-        if (saldo == null || saldo < 0) {
-            return true;
-        }
-        return false;
+    public Account withdraw(Account account, BigDecimal value) {
+        checkValue(value);
+        checkBalance(account.getSaldo(), value);
+        account.setSaldo(account.getSaldo().subtract(value));
+        return account;
     }
 
-    public boolean verificaTipo(String tipo) {
-        if (tipo == null || tipo.isEmpty() || TipoConta.valueOf(tipo).toString().isEmpty()) {
-            return true;
-        }
-        return false;
+    // Percebi que estou repetindo muito o termo 'transfer', isso não é bom, né?
+    public Account transfer(Account destinyAccount, Account originAccount, Transfer transfer) {
+        checkValue(transfer.getValue());
+        checkBalance(originAccount.getSaldo(), transfer.getValue());
+        withdraw(originAccount, transfer.getValue());
+        return deposit(destinyAccount, transfer.getValue());
     }
 
-    public boolean verificaDataAbertura(LocalDate data) {
-        if (LocalDate.now().isBefore(data)) {
-            return true;
+    private static void checkBalance(BigDecimal balance, BigDecimal value) {
+        if (balance.compareTo(value) < 0) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Saldo da conta insuficiente, saldo: " + balance);
         }
-        return false;
+    }
+
+    public boolean checkBlankOrNull(String s) {
+        return s == null || s.isEmpty();
+    }
+
+    public boolean checkBalanceNullOrZero(BigDecimal balance) {
+        return balance == null || balance.compareTo(BigDecimal.ZERO) < 0;
+    }
+
+    public boolean checkType(String accountType) {
+        return accountType == null || accountType.isEmpty() || AccountType.valueOf(accountType).toString().isEmpty();
+    }
+
+    public boolean checkOpeningDate(LocalDate date) {
+        return LocalDate.now().isBefore(date);
     }
 
 
-    public boolean verificaValorPositivo(Double valor) {
-        if (valor <= 0) {
-            return false;
-        }
-        return true;
-
+    public boolean checkPositiveValue(BigDecimal value) {
+        return value.compareTo(BigDecimal.ZERO) >= 0;
     }
+
+
 }

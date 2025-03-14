@@ -1,23 +1,20 @@
 package br.com.fiap.Bank_api.model;
 
-import br.com.fiap.Bank_api.service.ContaService;
-import org.springframework.cglib.core.Local;
-
+import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
-public class Conta {
+public class Account {
 
     private Long numero;
     private Long agencia;
     private String nomeTitular;
     private String cpf;
     private LocalDate dataAbertura;
-    private double saldo;
+    private BigDecimal saldo;
     private boolean ativo; //(s/n)
-    private TipoConta tipo;
+    private AccountType tipo;
 
-    public Conta(Long numero, Long agencia, String nomeTitular, String cpf, TipoConta tipo, Double saldo) {
+    public Account(Long numero, Long agencia, String nomeTitular, String cpf, AccountType tipo, BigDecimal saldo) {
         this.numero = numero;
         this.agencia = agencia;
         this.nomeTitular = nomeTitular;
@@ -70,11 +67,11 @@ public class Conta {
         this.dataAbertura = dataAbertura;
     }
 
-    public double getSaldo() {
+    public BigDecimal getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(double saldo) {
+    public void setSaldo(BigDecimal saldo) {
         this.saldo = saldo;
     }
 
@@ -86,11 +83,11 @@ public class Conta {
         this.ativo = ativo;
     }
 
-    public TipoConta getTipo() {
+    public AccountType getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoConta tipo) {
+    public void setTipo(AccountType tipo) {
         this.tipo = tipo;
     }
 }
