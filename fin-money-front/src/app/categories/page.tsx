@@ -20,7 +20,6 @@ export default async function CategoriesPage() {
                     {data.map((category) => (
                         <CategoryItem category={category} key={category.id} />
                     ))}
-					
                 </div>
             </main>
         </>
