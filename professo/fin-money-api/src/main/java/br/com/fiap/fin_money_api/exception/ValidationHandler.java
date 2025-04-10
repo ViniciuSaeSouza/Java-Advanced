@@ -21,5 +21,4 @@ public class ValidationHandler {
                 .map(error -> new ValidationError(error.getField(), error.getDefaultMessage()))
                 .toList();
     }
-    
 }
