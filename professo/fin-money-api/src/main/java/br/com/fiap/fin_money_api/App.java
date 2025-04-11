@@ -8,7 +8,9 @@ import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.info.Info;
 
 @SpringBootApplication
-@OpenAPIDefinition(info = @Info(title = "FinMoneyAPI", version = "v1", description = "Api do SaaS FinMoney"))
+@OpenAPIDefinition(
+		info = @Info(title = "FinMoney API", version = "v1", description = "API do SaaS FinMoney")
+)
 @EnableCaching
 public class App {
 
