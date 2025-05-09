@@ -32,7 +32,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("categories")
 @Slf4j
 public class CategoryController {
-
+    
     @Autowired
     private CategoryRepository repository;
 

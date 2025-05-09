@@ -1,6 +1,18 @@
 package br.com.fiap.fin_money_api.model;
 
-import jakarta.persistence.*;
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -8,35 +20,25 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Collection;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
 @Builder
-@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User implements UserDetails {
+@Data
+public class User implements UserDetails{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Email(message = "email invalido")
+    @Email(message = "email inválido")
     @NotBlank(message = "campo obrigatório")
     @Column(unique = true)
     private String email;
 
     @Size(min = 5)
     private String password;
-
-    @OneToMany
-    private List<Category> category;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -47,4 +49,5 @@ public class User implements UserDetails {
     public String getUsername() {
         return email;
     }
+    
 }

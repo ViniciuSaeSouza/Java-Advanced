@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import br.com.fiap.fin_money_api.model.User;
-import br.com.fiap.fin_money_api.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
@@ -41,7 +39,8 @@ public class DatabaseSeeder {
         String password = passwordEncoder.encode("12345");
         var joao = User.builder().email("joao@fiap.com.br").password(password).build();
         var maria = User.builder().email("maria@fiap.com.br").password(password).build();
-        userRepository.saveAll(List.of(joao, maria));
+        var saes = User.builder().email("saes@fiap.com.br").password(password).build();
+        userRepository.saveAll(List.of(joao, maria, saes));
 
 
         var categories = List.of(
