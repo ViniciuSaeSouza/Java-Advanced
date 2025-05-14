@@ -39,8 +39,7 @@ public class DatabaseSeeder {
         String password = passwordEncoder.encode("12345");
         var joao = User.builder().email("joao@fiap.com.br").password(password).build();
         var maria = User.builder().email("maria@fiap.com.br").password(password).build();
-        var saes = User.builder().email("saes@fiap.com.br").password(password).build();
-        userRepository.saveAll(List.of(joao, maria, saes));
+        userRepository.saveAll(List.of(joao, maria));
 
 
         var categories = List.of(

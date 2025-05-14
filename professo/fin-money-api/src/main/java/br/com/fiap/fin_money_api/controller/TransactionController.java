@@ -12,6 +12,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.fiap.fin_money_api.model.Transaction;
@@ -34,6 +35,7 @@ public class TransactionController {
     public Page<Transaction> index(
             TransactionFilters filters,
             @PageableDefault(size = 10, sort = "date", direction = Direction.DESC) Pageable pageable) {
+
                 var specification = TransactionSpecification.withFilters(filters);
                 return repository.findAll(specification, pageable);
     }
