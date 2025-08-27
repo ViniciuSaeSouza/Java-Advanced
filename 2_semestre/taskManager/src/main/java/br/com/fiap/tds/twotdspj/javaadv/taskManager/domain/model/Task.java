@@ -1,4 +1,4 @@
-package br.com.fiap.tds.twotdspj.javaadv.taskManager.domainmodel;
+package br.com.fiap.tds.twotdspj.javaadv.taskManager.domain.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

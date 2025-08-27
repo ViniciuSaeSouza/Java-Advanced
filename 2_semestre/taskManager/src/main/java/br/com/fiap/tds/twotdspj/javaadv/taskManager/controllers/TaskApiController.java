@@ -1,13 +1,6 @@
 package br.com.fiap.tds.twotdspj.javaadv.taskManager.controllers;
 
-import br.com.fiap.tds.twotdspj.javaadv.taskManager.domainmodel.Task;
-import br.com.fiap.tds.twotdspj.javaadv.taskManager.service.TaskService;
-import br.com.fiap.tds.twotdspj.javaadv.taskManager.mapper.TaskMapper;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/tasks")

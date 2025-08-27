@@ -1,7 +1,5 @@
 package br.com.fiap.tds.twotdspj.javaadv.taskManager.mapper;
 
-import br.com.fiap.tds.twotdspj.javaadv.taskManager.domainmodel.Task;
-
 public class TaskMapper {
 
 //    public TaskDTO toDTO(Task task) {

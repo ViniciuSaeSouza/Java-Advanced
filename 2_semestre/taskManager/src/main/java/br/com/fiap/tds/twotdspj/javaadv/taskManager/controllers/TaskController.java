@@ -1,9 +1,9 @@
 package br.com.fiap.tds.twotdspj.javaadv.taskManager.controllers;
 
 
-import br.com.fiap.tds.twotdspj.javaadv.taskManager.domainmodel.Task;
-import br.com.fiap.tds.twotdspj.javaadv.taskManager.domainmodel.TaskPriority;
-import br.com.fiap.tds.twotdspj.javaadv.taskManager.domainmodel.TaskStatus;
+import br.com.fiap.tds.twotdspj.javaadv.taskManager.domain.model.Task;
+import br.com.fiap.tds.twotdspj.javaadv.taskManager.domain.model.TaskPriority;
+import br.com.fiap.tds.twotdspj.javaadv.taskManager.domain.model.TaskStatus;
 import br.com.fiap.tds.twotdspj.javaadv.taskManager.service.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;

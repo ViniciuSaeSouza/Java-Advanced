@@ -1,7 +1,7 @@
 package br.com.fiap.tds.twotdspj.javaadv.taskManager.datasource.repository;
 
-import br.com.fiap.tds.twotdspj.javaadv.taskManager.domainmodel.Task;
-import br.com.fiap.tds.twotdspj.javaadv.taskManager.domainmodel.TaskStatus;
+import br.com.fiap.tds.twotdspj.javaadv.taskManager.domain.model.Task;
+import br.com.fiap.tds.twotdspj.javaadv.taskManager.domain.model.TaskStatus;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 

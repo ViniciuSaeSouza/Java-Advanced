@@ -1,4 +1,4 @@
-package br.com.fiap.tds.twotdspj.javaadv.taskManager.domainmodel;
+package br.com.fiap.tds.twotdspj.javaadv.taskManager.domain.model;
 
 
 public enum TaskPriority{
