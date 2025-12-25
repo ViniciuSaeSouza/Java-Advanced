@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Usuários Cadastrados</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <header class="page-header">
+        <h2>Gerenciamento de Usuários</h2>
+        <a class="add-button" th:href="@{users/new}">+ Adicionar Usuário</a>
+    </header>
+
+    <div class="users-grid">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>Identificador</th>
+                    <th>Nome do Usuário</th>
+                    <th>Email</th>
+                    <th>Operações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${users}" class="user-row">
+                    <td th:text="${user.id}" class="id-cell"></td>
+                    <td th:text="${user.name}" class="name-cell"></td>
+                    <td th:text="${user.email}" class="email-cell"></td>
+                    <td class="actions-cell">
+                        <div class="action-controls">
+                            <a class="view-link" th:href="@{'/users/view/' + ${user.id}}" title="Visualizar">👁️ Ver</a>
+                            <a class="edit-link" th:href="@{'/users/edit/' + ${user.id}}" title="Editar">✏️ Editar</a>
+                            <a class="delete-link" th:href="@{'/users/delete/' + ${user.id}}"
+                               onclick="return confirm('Tem certeza que deseja excluir este usuário?')" title="Excluir">🗑️ Remover</a>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:if="${param.success}" class="success-notification">
+        Operação realizada com sucesso!
+    </div>
+</div>
+</body>
+</html>

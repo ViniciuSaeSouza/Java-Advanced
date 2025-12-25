@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Gerenciar Usuário</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container">
+    <h2 th:text="${user.id == null ? 'Adicionar Novo Usuário' : 'Atualizar Dados do Usuário'}"></h2>
+
+    <div class="form-wrapper">
+        <form th:action="${user.id == null} ? @{/users/save} : @{/users/edit/{id}(id=${user.id})}"
+              th:object="${user}" method="POST" class="user-form">
+
+            <input type="hidden" th:field="*{id}">
+
+            <div class="form-group">
+                <label for="name">Nome Completo:</label>
+                <input type="text" th:field="*{name}" id="name" placeholder="Digite o nome completo">
+                <span class="validation-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Endereço de Email:</label>
+                <input type="email" th:field="*{email}" id="email" placeholder="usuario@exemplo.com">
+                <span class="validation-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Senha de Acesso:</label>
+                <input type="password" th:field="*{password}" id="password" placeholder="Mínimo 6 caracteres">
+                <span class="validation-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+            </div>
+
+            <div class="button-group">
+                <button type="button" onclick="submitForm()" class="btn-primary">Confirmar</button>
+                <a th:href="@{/users}" class="btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    function submitForm() {
+        const confirmed = confirm("Confirmar operação?");
+        if (confirmed) {
+            document.querySelector(".user-form").submit();
+        }
+    }
+</script>
+</body>
+</html>

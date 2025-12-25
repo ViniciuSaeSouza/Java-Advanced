@@ -1,0 +1,2 @@
+SELECT * FROM public.my_app_user
+ORDER BY id ASC

@@ -1,0 +1,3 @@
+ALTER TABLE cereal ADD COLUMN categoria VARCHAR(50);
+
+UPDATE cereal SET categoria = 'Grão' WHERE nome IN ('Arroz', 'Feijão', 'Milho');

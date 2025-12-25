@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="569a5e61-ac17-4f3b-a127-64c9a956d4ed" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../cp4/checkpoint4-java-laura/taskManager/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../cp4/checkpoint4-java-laura/taskManager/src/main/java/br/com/fiap/tds/twotdspj/javaadv/taskManager/domainmodel/DTOs/UserUpdateDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fiap_2tdspj_adv_java_2025/taskManager/.idea/kotlinc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fiap_2tdspj_adv_java_2025/taskManager/.idea/kotlinc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fiap_2tdspj_adv_java_2025/taskManager/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../fiap_2tdspj_adv_java_2025/taskManager/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fiap_2tdspj_adv_java_2025/taskManager/src/main/resources/templates/tasks/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fiap_2tdspj_adv_java_2025/taskManager/src/main/resources/templates/tasks/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fiap_2tdspj_adv_java_2025/taskManager/target/classes/templates/tasks/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fiap_2tdspj_adv_java_2025/taskManager/target/classes/templates/tasks/form.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/taskManager" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 4
+}]]></component>
+  <component name="ProjectId" id="33qkGsmK4UIkAiybyjPbsrlhWXu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="569a5e61-ac17-4f3b-a127-64c9a956d4ed" name="Changes" comment="" />
+      <created>1760051896752</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760051896752</updated>
+    </task>
+    <servers />
+  </component>
+</project>
